@@ -1,4 +1,4 @@
-# GRANDstack Starter
+# GRANDstack Demo project
 
 ```
 npm install
