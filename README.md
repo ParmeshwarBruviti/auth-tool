@@ -33,7 +33,8 @@ yarn run start
 ```
 
 ### 3. Seed the database (optional)
-Once the application is running switch to \api folder and run in another terminal run
+
+Once the application is running switch to \api folder and  in another terminal run
 
 
 ```
