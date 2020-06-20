@@ -9,7 +9,7 @@ npm run start
 This project is demonstation of creating app using  [GRANDstack](https://grandstack.io) (GraphQL, React, Apollo, Neo4j Database) application. There are two components to application, the web frontend application (in React and Angular flavors) and the API app (GraphQL server).
 
 To store database to online Sandbox use followwing steps and create a sadbox
-### 1. Create A local Neo4j Sandbox Instance
+### 1. Create A Local Neo4j Desktop Database Instance
 
 1) Download [neo4j Desktop](https://neo4j.com/download/)
 2) Install in your system.
