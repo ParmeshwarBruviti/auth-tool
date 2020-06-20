@@ -11,16 +11,16 @@ This project is demonstation of creating app using  [GRANDstack](https://grandst
 To store database to online Sandbox use followwing steps and create a sadbox
 ### 1. Create A local Neo4j Sandbox Instance
 
-1)  Download [neo4j Desktop](https://neo4j.com/download/)
+1) Download [neo4j Desktop](https://neo4j.com/download/)
 2) Install in your system.
 3) Install APOC plugin for project.
-4) Create database and click to manage menu and install APOC plugin for that database.
-5) Start the database and observe it is opened in neo4j browser. Find bolt url and password on that launching page.
-6) set those url and password in our .env file.
+4) Create database and click to "MANAGE" menu and install APOC plugin for that database.
+5) Start the database and observe it is opened in neo4j browser. Find "bolt url" and "password" on that browser page.
+6) Set those url and password in our .env file. (How to set it is mention in Overview section)
 
-now you are all set with environment.
+Now you are set with database environment. On project run database connection and initialisation will be handled. And seedDb script will push our data fething from CSV file.
 
-### 2. Run the `app using  CLI from root folder
+### 2. Run the app using  CLI from root folder
 
 ```
 npm install
@@ -37,7 +37,7 @@ yarn run start
 
 ### 3. Seed the database (optional)
 
-Once the application is running switch to \api folder and  in another terminal run
+Once the application is running switch to '\api' folder and  in another terminal run
 
 
 ```
