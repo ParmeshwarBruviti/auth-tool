@@ -1,22 +1,14 @@
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://grandstack.io/deploy-starter-netlify) [![Deploy to Vercel](https://vercel.com/button)](https://grandstack.io/deploy-starter-vercel) [![Provision Neo4j](https://grandstack.io/img/provision-neo4j.png)](https://sandbox.neo4j.com/?usecase=blank-sandbox)
-
-
 # GRANDstack Starter
 
 ```
-npx create-grandstack-app myNewApp
+npm install
+
+npm run start
 ```
 
-This project is a starter for building a [GRANDstack](https://grandstack.io) (GraphQL, React, Apollo, Neo4j Database) application. There are two components to the starter, the web frontend application (in React and Angular flavors) and the API app (GraphQL server).
+This project is demonstation of creating app using  [GRANDstack](https://grandstack.io) (GraphQL, React, Apollo, Neo4j Database) application. There are two components to application, the web frontend application (in React and Angular flavors) and the API app (GraphQL server).
 
-[![Hands On With The GRANDstack Starter](http://img.youtube.com/vi/rPC71lUhK_I/0.jpg)](http://www.youtube.com/watch?v=1JLs166lPcA 'Hands On With The GRANDstack Starter')
-
-_Hands On With The GRANDstack Starter Video_
-
-## Quickstart
-
-The easiest way to get started with the GRANDstack Starter is to create a Neo4j Sandbox instance and use the `create-grandstack-app` command line tool.
-
+To store database to online Sandbox use followwing steps and create a sadbox
 ### 1. Create A Neo4j Sandbox Instance
 
 [Neo4j Sandbox](https://neo4j.com/sandbox) allows you to create a free hosted Neo4j instance private to you that can be used for development.
@@ -25,25 +17,24 @@ After singing in to Neo4j Sandbox, click the `+ New Project` button and select t
 
 ![Neo4j Sandbox connection details](img/neo4j-sandbox.png)
 
-### 2. Run the `create-grandstack-app` CLI
+### 2. Run the `app using  CLI from root folder
 
 ```
-npx create-grandstack-app myNewApp
+npm install
+npm run start
+
 ```
 
 or with Yarn
 
 ```
-yarn create grandstack-app myNewApp
+yarn install
+yarn run start
 ```
 
-![create grandstack app output](img/create-grandstack-app.png)
-
-This will create a new directory `myNewApp`, download the latest release of the GRANDstack Starter, install dependencies and prompt for your connection credentials for Neo4j to connect to the GraphQL API.
-
 ### 3. Seed the database (optional)
+Once the application is running switch to \api folder and run in another terminal run
 
-Once the application is running, in another terminal run
 
 ```
 npm run seedDb
