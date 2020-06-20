@@ -228,10 +228,10 @@ export default function App() {
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Switch>
-              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/" component={LangGraph} />
               <Route exact path="/businesses" component={UserList} />
               <Route exact path="/users" component={UserList} />
-              <Route exact path="/graphs" component={LangGraph} />
+              <Route exact path="/graphs" component={Dashboard} />
             </Switch>
 
             <Box pt={4}>
