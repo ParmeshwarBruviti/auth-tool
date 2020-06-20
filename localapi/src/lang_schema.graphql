@@ -20,14 +20,4 @@ type Language {
   frameworks: [Framework] @relation(name: "USED_IN", direction: "OUT")
 }
 
-type Query
-{
-   greeting: String
-   sayHello(name:String!):String
-}
-
-type Mutation {
-    createNode(label:String,key:String,value:String) : String
-      @cypher(statement:"CREATE (:label { key}:value })")                        
-}
 
