@@ -156,7 +156,7 @@ export default function VisGraphs() {
           ]}
         />
         <div className="detailsArea">
-          <AddDataPanel />
+          {/* <AddDataPanel /> */}
           <GraphDetailspanel selectedItem={selectedElement} />
         </div>
       </div>
@@ -164,40 +164,40 @@ export default function VisGraphs() {
   )
 }
 
-function AddDataPanel() {
-  const [currentForm, setCurrentForm] = useState()
+// function AddDataPanel() {
+//   const [currentForm, setCurrentForm] = useState()
 
-  function getAddUserForm() {
-    return <div>this is add user form</div>
-  }
+//   function getAddUserForm() {
+//     return <div>this is add user form</div>
+//   }
 
-  function getAddBusinessForm() {
-    return <div>this is add Business form</div>
-  }
+//   function getAddBusinessForm() {
+//     return <div>this is add Business form</div>
+//   }
 
-  function getAddReviewForm() {
-    return <div>this is add review form</div>
-  }
-  return (
-    <div className="addDataPanel">
-      <div className="actionButtonsContainer">
-        <button onClick={() => setCurrentForm(getAddUserForm)}>
-          {' '}
-          Add User{' '}
-        </button>
-        <button onClick={() => setCurrentForm(getAddBusinessForm)}>
-          {' '}
-          Add Business{' '}
-        </button>
-        <button onClick={() => setCurrentForm(getAddReviewForm)}>
-          {' '}
-          Add Review{' '}
-        </button>
-      </div>
-      <div className="formContainer">{currentForm}</div>
-    </div>
-  )
-}
+//   function getAddReviewForm() {
+//     return <div>this is add review form</div>
+//   }
+//   return (
+//     <div className="addDataPanel">
+//       <div className="actionButtonsContainer">
+//         <button onClick={() => setCurrentForm(getAddUserForm)}>
+//           {' '}
+//           Add User{' '}
+//         </button>
+//         <button onClick={() => setCurrentForm(getAddBusinessForm)}>
+//           {' '}
+//           Add Business{' '}
+//         </button>
+//         <button onClick={() => setCurrentForm(getAddReviewForm)}>
+//           {' '}
+//           Add Review{' '}
+//         </button>
+//       </div>
+//       <div className="formContainer">{currentForm}</div>
+//     </div>
+//   )
+// }
 
 function GraphDetailspanel(props) {
   return (
