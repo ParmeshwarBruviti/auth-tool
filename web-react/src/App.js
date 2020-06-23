@@ -31,7 +31,8 @@ import {
   Person,
 } from '@material-ui/icons'
 import Dashboard from './components/Dashboard'
-import Graphs from './components/Graphs'
+import Graphs from './components/graph/Graphs'
+import VisGraph from './components/graph/VisGraph'
 
 function Copyright() {
   return (
@@ -113,11 +114,17 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    marginLeft: theme.spacing(0),
+    marginRight: theme.spacing(0),
+    marginTop: theme.spacing(0),
+    marginBottom: theme.spacing(0),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
@@ -221,17 +228,27 @@ export default function App() {
                 <ListItemText primary="Graphs" />
               </ListItem>
             </Link>
+
+            <Link to="/visGraph" className={classes.navLink}>
+              <ListItem button>
+                <ListItemIcon>
+                  <BarChart />
+                </ListItemIcon>
+                <ListItemText primary="Vis Graph" />
+              </ListItem>
+            </Link>
           </List>
           <Divider />
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          <Container maxWidth="lg" className={classes.container}>
+          <Container maxWidth="xl" className={classes.container}>
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/businesses" component={UserList} />
               <Route exact path="/users" component={UserList} />
               <Route exact path="/graphs" component={Graphs} />
+              <Route exact path="/visGraph" component={VisGraph} />
             </Switch>
 
             <Box pt={4}>
