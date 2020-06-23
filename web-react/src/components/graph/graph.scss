@@ -1,0 +1,39 @@
+.visGraphRoot{
+    width: 100%;
+    margin: 0rem;
+    padding: 0rem;
+}
+.addDataPanel{
+    display: flex;
+    flex-direction: column;
+    .actionButtonsContainer{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .formContainer{
+
+    }
+}
+.detailsArea{
+    width: 30%;
+    .detailsPanel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        background-color: gainsboro;
+        .h1{
+            align-items: center;
+        }
+       
+    }
+   
+}
+
+.graphAndDetailsArea{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0rem;
+    padding: 0rem ;
+}

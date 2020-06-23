@@ -15,9 +15,10 @@ import {
   TextField,
 } from '@material-ui/core'
 
-import { DeleteForever } from '@material-ui/icons'
+import { DeleteForever, Edit } from '@material-ui/icons'
 
 import Title from './Title'
+import UserAddEditDialog from './user/UserAddEditDialog'
 
 const styles = (theme) => ({
   root: {
@@ -66,6 +67,15 @@ const CREATE_USER = gql`
     }
   }
 `
+
+const UPDATE_USER = gql`
+  mutation updateUser($id: ID!, $userName: String) {
+    MergeUser(userId: $id, name: $userName) {
+      name
+    }
+  }
+`
+
 const DELETE_USER = gql`
   mutation deleteUser($userId: ID!) {
     DeleteUser(userId: $userId) {
@@ -82,10 +92,29 @@ function UserList(props) {
   const [rowsPerPage] = React.useState(20)
   const [filterState, setFilterState] = React.useState({ usernameFilter: '' })
   const [addUserState, setAddUserState] = React.useState({ userName: '' })
+  const [userToEdit, setUserToEdit] = React.useState({
+    id: undefined,
+    name: undefined,
+  })
+
   const [saveUser] = useMutation(CREATE_USER, {
     variables: {
       userName: addUserState.userName,
     },
+    refetchQueries: () => [
+      {
+        query: GET_USER,
+        variables: {
+          first: rowsPerPage,
+          offset: rowsPerPage * page,
+          orderBy: orderBy + '_' + order,
+          filter: getFilter(),
+        },
+      },
+    ],
+  })
+
+  const [updateUserAtServer] = useMutation(UPDATE_USER, {
     refetchQueries: () => [
       {
         query: GET_USER,
@@ -112,6 +141,25 @@ function UserList(props) {
       },
     ],
   })
+
+  function clearUser() {
+    setUserToEdit({ id: undefined, name: undefined })
+  }
+
+  function updateUser(updatedUserObj) {
+    //alert(`${updatedUserObj.id} and ${updatedUserObj.name}`)
+
+    updateUserAtServer({
+      variables: {
+        id: updatedUserObj.id,
+        userName: updatedUserObj.name,
+      },
+    })
+  }
+
+  function editUser(id, name) {
+    setUserToEdit({ id: id, name: name })
+  }
 
   function validateAndSaveUser() {
     if (addUserState.userName != '') {
@@ -289,12 +337,20 @@ function UserList(props) {
                       />
                     )}
                   </TableCell>
+                  <TableCell>
+                    <Edit onClick={() => editUser(n.id, n.name)} />
+                  </TableCell>
                 </TableRow>
               )
             })}
           </TableBody>
         </Table>
       )}
+      <UserAddEditDialog
+        user={userToEdit}
+        clearUser={clearUser}
+        update={updateUser}
+      />
     </Paper>
   )
 }
