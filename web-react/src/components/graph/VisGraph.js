@@ -77,6 +77,7 @@ export default function VisGraphs() {
           'Business'
         )
       )
+
       elements.push(
         getNode(review.user._id, review.user.name, '#3342FF', 'User')
       )
@@ -84,10 +85,15 @@ export default function VisGraphs() {
         data: { source: review._id, target: review.business._id, type: 'Edge' },
       })
       elements.push({
-        data: { source: review._id, target: review.user._id, type: 'Edge' },
+        data: {
+          source: review._id,
+          target: review.user._id,
+          type: 'Edge',
+          label: 'dummy one',
+        },
       })
     })
-
+    console.log('elements are', elements)
     return elements
   }
 
@@ -150,7 +156,7 @@ export default function VisGraphs() {
             {
               selector: 'edge',
               style: {
-                width: 4,
+                width: 10,
               },
             },
           ]}

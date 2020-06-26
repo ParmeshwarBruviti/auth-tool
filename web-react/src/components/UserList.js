@@ -306,14 +306,12 @@ function UserList(props) {
                   </TableSortLabel>
                 </Tooltip>
               </TableCell>
-              <TableCell key="actions">
-                <Tooltip
-                  title="Actions"
-                  placement="bottom-start"
-                  enterDelay={300}
-                >
-                  <TableSortLabel>Actions</TableSortLabel>
-                </Tooltip>
+              <TableCell key="Edit">
+                <TableHead>Edit</TableHead>
+              </TableCell>
+
+              <TableCell key="Delete">
+                <TableHead>Delete</TableHead>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -329,6 +327,9 @@ function UserList(props) {
                   </TableCell>
                   <TableCell>{n.numReviews}</TableCell>
                   <TableCell>
+                    <Edit onClick={() => editUser(n.id, n.name)} />
+                  </TableCell>
+                  <TableCell>
                     {n.numReviews == 0 && (
                       <DeleteForever
                         onClick={() =>
@@ -336,9 +337,6 @@ function UserList(props) {
                         }
                       />
                     )}
-                  </TableCell>
-                  <TableCell>
-                    <Edit onClick={() => editUser(n.id, n.name)} />
                   </TableCell>
                 </TableRow>
               )

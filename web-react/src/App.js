@@ -29,10 +29,11 @@ import {
   Dashboard as DashboardIcon,
   BarChart,
   Person,
+  Comment,
 } from '@material-ui/icons'
 import Dashboard from './components/Dashboard'
-import Graphs from './components/graph/Graphs'
 import VisGraph from './components/graph/VisGraph'
+import ReviewList from './components/review/ReviewList'
 
 function Copyright() {
   return (
@@ -220,12 +221,12 @@ export default function App() {
               </ListItem>
             </Link>
 
-            <Link to="/graphs" className={classes.navLink}>
+            <Link to="/reviews" className={classes.navLink}>
               <ListItem button>
                 <ListItemIcon>
-                  <BarChart />
+                  <Comment />
                 </ListItemIcon>
-                <ListItemText primary="Graphs" />
+                <ListItemText primary="reviews" />
               </ListItem>
             </Link>
 
@@ -247,7 +248,7 @@ export default function App() {
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/businesses" component={UserList} />
               <Route exact path="/users" component={UserList} />
-              <Route exact path="/graphs" component={Graphs} />
+              <Route exact path="/reviews" component={ReviewList} />
               <Route exact path="/visGraph" component={VisGraph} />
             </Switch>
 
