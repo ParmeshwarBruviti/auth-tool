@@ -1,12 +1,16 @@
-const fetch = require('node-fetch')
+// const fetch = require('node-fetch')
 const parse = require('csv-parse/lib/sync')
 const gql = require('graphql-tag')
+import fs from 'fs'
+import path from 'path'
 
 export const getSeedMutations = async () => {
-  const res = await fetch(
-    'https://cdn.neo4jlabs.com/data/grandstack_businesses.csv'
-  )
-  const body = await res.text()
+  // 'https://cdn.neo4jlabs.com/data/grandstack_businesses.csv'
+  //const res = await fetch(
+  // 'https://localhost:3000/localapi/src/seed/grandstack_data.csv'
+  //)
+  const res = fs.readFileSync(path.join(__dirname, 'grandstack_data.csv'))
+  const body = res
   const records = parse(body, { columns: true })
   const mutations = generateMutations(records)
 
